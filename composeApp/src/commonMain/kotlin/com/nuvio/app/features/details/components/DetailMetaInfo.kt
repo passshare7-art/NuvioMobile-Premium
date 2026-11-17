@@ -107,19 +107,15 @@ fun DetailMetaInfo(
                 itemVerticalAlignment = Alignment.CenterVertically,
             ) {
                 releaseLine?.let { line ->
-                    Text(
+                    DetailHeroMetaBadge(
                         text = line,
-                        style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.onBackground,
-                        fontWeight = FontWeight.Bold,
+                        contentColor = MaterialTheme.colorScheme.onSurface,
                     )
                 }
                 runtimeText?.let { rt ->
-                    Text(
+                    DetailHeroMetaBadge(
                         text = rt,
-                        style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.onBackground,
-                        fontWeight = FontWeight.Bold,
+                        contentColor = MaterialTheme.colorScheme.onSurface,
                     )
                 }
                 ageBadge?.let { badge ->
@@ -302,7 +298,11 @@ internal fun DetailHeroMetaBadge(
     val borderColor = contentColor.copy(alpha = 0.55f)
     Row(
         modifier = Modifier
-            .border(BorderStroke(1.dp, borderColor), MetaBadgeShape)
+            .background(
+                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.56f),
+                shape = MetaBadgeShape,
+            )
+            .border(BorderStroke(1.dp, Color.White.copy(alpha = 0.14f)), MetaBadgeShape)
             .padding(MetaBadgePadding),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -320,7 +320,7 @@ internal fun DetailHeroMetaBadge(
     }
 }
 
-internal val MetaBadgeShape = RoundedCornerShape(6.dp)
+internal val MetaBadgeShape = RoundedCornerShape(50)
 internal val MetaBadgePadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
 
 @Composable
