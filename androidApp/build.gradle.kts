@@ -47,7 +47,8 @@ val releaseAppVersionCode = readXcconfigValue(appVersionConfigFile, "CURRENT_PRO
     ?: error("CURRENT_PROJECT_VERSION is missing or invalid in ${appVersionConfigFile.path}")
 val requestedTaskNames = gradle.startParameter.taskNames.map { it.substringAfterLast(':') }
 val buildsReleaseApks = requestedTaskNames.any {
-    it.startsWith("assemble", ignoreCase = true) && it.endsWith("Release", ignoreCase = true)
+    it.startsWith("assemble", ignoreCase = true) &&
+        (it.endsWith("Release", ignoreCase = true) || it.endsWith("Benchmark", ignoreCase = true))
 }
 
 android {
