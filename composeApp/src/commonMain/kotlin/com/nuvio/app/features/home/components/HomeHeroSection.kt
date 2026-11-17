@@ -202,7 +202,9 @@ fun HomeHeroSection(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .heroStretchHeight(layout.heroHeight, stretchPx),
+                .heroStretchHeight(layout.heroHeight, stretchPx)
+                .padding(horizontal = maxWidth * 0.10f)
+                .clip(RoundedCornerShape(28.dp)),
         ) {
             HorizontalPager(
                 state = pagerState,
