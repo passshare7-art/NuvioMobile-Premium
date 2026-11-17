@@ -153,7 +153,8 @@ fun NuvioNavigationBar(
                     Modifier
                 },
             )
-            .background(Color(0xFF1C1C1E).copy(alpha = if (hazeState != null) 0.55f else 0.82f))
+            .background(Color(0xE612141B).copy(alpha = if (hazeState != null) 0.68f else 0.92f))
+            .border(1.dp, Color.White.copy(alpha = 0.12f), RoundedCornerShape(NuvioTokens.Radius.full))
 
         Box(modifier = pillModifier) {
             Row(
